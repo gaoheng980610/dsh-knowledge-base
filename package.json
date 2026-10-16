@@ -1,0 +1,53 @@
+{
+  "name": "dsh-knowledge-base",
+  "version": "0.1.0",
+  "description": "DSH 资料库：本地 Markdown 知识库。Host 半边以 node:fs 读写 $DSH_HOME/knowledge-base 下的 Markdown 资料，并注册会话可按需调用的检索工具；Browser 半边提供侧边栏「资料库」面板，支持目录树、全文搜索、Markdown 阅读与在线编辑。",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "knowledge-base",
+    "资料库"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gaoheng980610/dsh-knowledge-base.git"
+  },
+  "homepage": "https://github.com/gaoheng980610/dsh-knowledge-base#readme",
+  "bugs": {
+    "url": "https://github.com/gaoheng980610/dsh-knowledge-base/issues"
+  },
+  "dsh": {
+    "engines": {
+      "dsh": ">=0.2.0-rc.2"
+    },
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [],
+      "platform": "web"
+    }
+  },
+  "peerDependencies": {
+    "react": "^18.2.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  }
+}

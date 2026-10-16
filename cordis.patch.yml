@@ -1,0 +1,10 @@
+# dsh-knowledge-base bundle patch：把插件行插入 web profile 的 roster。
+#
+# 这是一个裸按包名的 plugin row：
+#   - node 半边（exports "."）跑在 host 进程里，负责资料库文件的唯一权威读写，
+#     并通过 webServer 暴露同源 HTTP 端点，同时向 ctx.tools 注册会话可调用的检索工具；
+#   - package.json 的 dsh.client 声明让浏览器半边（exports "./client"，
+#     经 __ModuleLoader__ 协议加载）在 web GUI 里生效。
+- insert:
+    - id: ui-knowledge-base
+      name: 'dsh-knowledge-base'
