@@ -1,6 +1,6 @@
 {
   "name": "dsh-knowledge-base",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "DSH 资料库：本地 Markdown 知识库。Host 半边以 node:fs 读写 $DSH_HOME/knowledge-base 下的 Markdown 资料，并注册会话可按需调用的检索工具；Browser 半边提供侧边栏「资料库」面板，支持目录树、全文搜索、Markdown 阅读与在线编辑。",
   "type": "module",
   "main": "lib/index.js",

@@ -10,12 +10,19 @@
 ## 安装
 
 ```sh
-# 从预构建压缩包安装（推荐）
-dsh plugin --profile <你的 profile> add "https://github.com/gaoheng980610/dsh-knowledge-base/releases/download/v0.1.0/dsh-knowledge-base-0.1.0.tgz"
-
-# 或从仓库源码安装
-dsh plugin --profile <你的 profile> add "github:gaoheng980610/dsh-knowledge-base"
+# 推荐：按 tag 从仓库安装（锁定到具体提交，可重复安装与升级）
+dsh plugin --profile <你的 profile> add "github:gaoheng980610/dsh-knowledge-base#v0.1.1"
 ```
+
+也可以装 Release 里的预构建压缩包：
+
+```sh
+dsh plugin --profile <你的 profile> add "https://github.com/gaoheng980610/dsh-knowledge-base/releases/download/v0.1.1/dsh-knowledge-base-0.1.1.tgz"
+```
+
+> 压缩包直链在 pnpm 11 上有已知问题：**第一次安装正常，再次安装/升级同一链接**会报
+> `ERR_PNPM_MISSING_TARBALL_INTEGRITY`（store 里已有该包，但 lockfile 条目没有 integrity 字段）。
+> 需要重复安装或升级的，用上面的 `github:` 方式。
 
 `dsh plugin add` 会同时把 `dsh-knowledge-base` 写进 profile `package.json` 的 `dsh.profile.bundles`；
 装完**重启 DeepSeek Harness**——profile 的 bundle roster 在宿主进程启动时装载，
