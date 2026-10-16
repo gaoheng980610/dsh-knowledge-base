@@ -17,10 +17,11 @@ dsh plugin --profile <你的 profile> add "https://github.com/gaoheng980610/dsh-
 dsh plugin --profile <你的 profile> add "github:gaoheng980610/dsh-knowledge-base"
 ```
 
-装完把 `dsh-knowledge-base` 加进 profile `package.json` 的 `dsh.profile.bundles`，然后**重启 DeepSeek Harness**——
-profile 的 bundle roster 在宿主进程启动时装载，宿主半边（HTTP 路由 + Agent 工具）与浏览器半边都要重启后才生效。
+`dsh plugin add` 会同时把 `dsh-knowledge-base` 写进 profile `package.json` 的 `dsh.profile.bundles`；
+装完**重启 DeepSeek Harness**——profile 的 bundle roster 在宿主进程启动时装载，
+宿主半边（HTTP 路由 + Agent 工具）与浏览器半边都要重启后才生效。
 
-卸载：从 `dsh.profile.bundles` 移除该行，再 `dsh plugin --profile <profile> remove dsh-knowledge-base`。
+卸载：`dsh plugin --profile <profile> remove dsh-knowledge-base`（若 `dsh.profile.bundles` 中仍留有该行，一并删掉）。
 
 从源码改动迭代时可以用 link 方式安装（改完即时生效，仍需重启）：
 
